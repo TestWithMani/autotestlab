@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - AutoTestLab</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="test-scenarios.html" class="nav-link">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link">Date Picker</a>
+                    <a href="docs.html" class="nav-link active">Docs</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="nav-link-mobile">Home</a>
+                    <a href="test-scenarios.html" class="nav-link-mobile">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link-mobile">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link-mobile">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link-mobile">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link-mobile">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link-mobile">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link-mobile">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link-mobile">Date Picker</a>
+                    <a href="docs.html" class="nav-link-mobile active">Docs</a>
+                    <a href="about.html" class="nav-link-mobile">About</a>
+                    <a href="contact.html" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Selenium Documentation</h1>
+            <p class="text-xl mb-8">Complete Python code examples for all test scenarios with copy-to-clipboard functionality</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-code mr-2"></i>Python Examples
+                </span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-copy mr-2"></i>Copy to Clipboard
+                </span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-syntax-highlighting mr-2"></i>Syntax Highlighting
+                </span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-search mr-2"></i>Search & Filter
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid lg:grid-cols-4 gap-8">
+            <!-- Sidebar Navigation -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-list mr-2 text-indigo-600"></i>
+                        Categories
+                    </h3>
+                    
+                    <!-- Search Box -->
+                    <div class="mb-6">
+                        <input type="text" id="search-docs" 
+                               placeholder="Search code examples..."
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+
+                    <!-- Category Navigation -->
+                    <nav class="space-y-2" id="category-nav">
+                        <a href="#login-tests" class="category-link active block p-3 rounded-lg hover:bg-indigo-50 transition duration-200">
+                            <i class="fas fa-sign-in-alt mr-2 text-green-600"></i>
+                            Login Tests
+                        </a>
+                        <a href="#form-handling" class="category-link block p-3 rounded-lg hover:bg-indigo-50 transition duration-200">
+                            <i class="fas fa-wpforms mr-2 text-blue-600"></i>
+                            Form Handling
+                        </a>
+                        <a href="#javascript-alerts" class="category-link block p-3 rounded-lg hover:bg-indigo-50 transition duration-200">
+                            <i class="fas fa-exclamation-triangle mr-2 text-yellow-600"></i>
+                            JavaScript Alerts
+                        </a>
+                        <a href="#dynamic-tables" class="category-link block p-3 rounded-lg hover:bg-indigo-50 transition duration-200">
+                            <i class="fas fa-table mr-2 text-purple-600"></i>
+                            Dynamic Tables
+                        </a>
+                        <a href="#file-upload" class="category-link block p-3 rounded-lg hover:bg-indigo-50 transition duration-200">
+                            <i class="fas fa-upload mr-2 text-teal-600"></i>
+                            File Upload
+                        </a>
+                        <a href="#drag-drop" class="category-link block p-3 rounded-lg hover:bg-indigo-50 transition duration-200">
+                            <i class="fas fa-mouse-pointer mr-2 text-pink-600"></i>
+                            Drag & Drop
+                        </a>
+                        <a href="#date-picker" class="category-link block p-3 rounded-lg hover:bg-indigo-50 transition duration-200">
+                            <i class="fas fa-calendar-alt mr-2 text-orange-600"></i>
+                            Date Picker
+                        </a>
+                        <a href="#setup-guide" class="category-link block p-3 rounded-lg hover:bg-indigo-50 transition duration-200">
+                            <i class="fas fa-cog mr-2 text-gray-600"></i>
+                            Setup Guide
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:col-span-3">
+                <!-- Login Tests Section -->
+                <section id="login-tests" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                            <i class="fas fa-sign-in-alt mr-2 text-green-600"></i>
+                            Login Tests
+                        </h2>
+                        
+                        <!-- Basic Login Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Basic Login Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Basic login functionality with valid credentials</span>
+                                    <button class="copy-btn" data-target="login-basic">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="login-basic">from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+
+def test_basic_login():
+    # Setup WebDriver
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        # Navigate to login page
+        driver.get("http://localhost:8000/login-scenarios.html")
+        
+        # Wait for page to load
+        wait = WebDriverWait(driver, 10)
+        
+        # Find and fill username field
+        username_field = wait.until(EC.presence_of_element_located((By.ID, "username")))
+        username_field.clear()
+        username_field.send_keys("testuser")
+        
+        # Find and fill password field
+        password_field = driver.find_element(By.ID, "password")
+        password_field.clear()
+        password_field.send_keys("password123")
+        
+        # Click login button
+        login_button = driver.find_element(By.ID, "login-btn")
+        login_button.click()
+        
+        # Wait for success message
+        success_message = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "success-message")))
+        
+        # Verify login was successful
+        assert "Login successful" in success_message.text
+        print("✅ Basic login test passed!")
+        
+    except Exception as e:
+        print(f"❌ Login test failed: {e}")
+        
+    finally:
+        driver.quit()
+
+if __name__ == "__main__":
+    test_basic_login()</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Invalid Login Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Invalid Credentials Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Test login with invalid credentials</span>
+                                    <button class="copy-btn" data-target="login-invalid">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="login-invalid">def test_invalid_login():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        driver.get("http://localhost:8000/login-scenarios.html")
+        wait = WebDriverWait(driver, 10)
+        
+        # Fill with invalid credentials
+        username_field = wait.until(EC.presence_of_element_located((By.ID, "username")))
+        username_field.clear()
+        username_field.send_keys("invaliduser")
+        
+        password_field = driver.find_element(By.ID, "password")
+        password_field.clear()
+        password_field.send_keys("wrongpassword")
+        
+        # Click login button
+        login_button = driver.find_element(By.ID, "login-btn")
+        login_button.click()
+        
+        # Wait for error message
+        error_message = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "error-message")))
+        
+        # Verify error message is displayed
+        assert "Invalid credentials" in error_message.text
+        print("✅ Invalid login test passed!")
+        
+    except Exception as e:
+        print(f"❌ Invalid login test failed: {e}")
+        
+    finally:
+        driver.quit()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Form Handling Section -->
+                <section id="form-handling" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                            <i class="fas fa-wpforms mr-2 text-blue-600"></i>
+                            Form Handling
+                        </h2>
+                        
+                        <!-- Registration Form Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Registration Form Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Complete registration form with validation</span>
+                                    <button class="copy-btn" data-target="form-registration">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="form-registration">def test_registration_form():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        driver.get("http://localhost:8000/form-handling.html")
+        wait = WebDriverWait(driver, 10)
+        
+        # Fill registration form
+        first_name = wait.until(EC.presence_of_element_located((By.ID, "first-name")))
+        first_name.clear()
+        first_name.send_keys("John")
+        
+        last_name = driver.find_element(By.ID, "last-name")
+        last_name.clear()
+        last_name.send_keys("Doe")
+        
+        email = driver.find_element(By.ID, "email")
+        email.clear()
+        email.send_keys("john.doe@example.com")
+        
+        phone = driver.find_element(By.ID, "phone")
+        phone.clear()
+        phone.send_keys("1234567890")
+        
+        # Select gender
+        gender_male = driver.find_element(By.ID, "gender-male")
+        gender_male.click()
+        
+        # Select country from dropdown
+        country_select = Select(driver.find_element(By.ID, "country"))
+        country_select.select_by_visible_text("United States")
+        
+        # Check terms checkbox
+        terms_checkbox = driver.find_element(By.ID, "terms")
+        if not terms_checkbox.is_selected():
+            terms_checkbox.click()
+        
+        # Submit form
+        submit_button = driver.find_element(By.ID, "submit-btn")
+        submit_button.click()
+        
+        # Wait for success message
+        success_message = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "success-message")))
+        assert "Registration successful" in success_message.text
+        print("✅ Registration form test passed!")
+        
+    except Exception as e:
+        print(f"❌ Registration form test failed: {e}")
+        
+    finally:
+        driver.quit()</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Form Validation Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Form Validation Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Test form validation with invalid data</span>
+                                    <button class="copy-btn" data-target="form-validation">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="form-validation">def test_form_validation():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        driver.get("http://localhost:8000/form-handling.html")
+        wait = WebDriverWait(driver, 10)
+        
+        # Try to submit empty form
+        submit_button = wait.until(EC.element_to_be_clickable((By.ID, "submit-btn")))
+        submit_button.click()
+        
+        # Check for validation errors
+        error_messages = driver.find_elements(By.CLASS_NAME, "error-message")
+        assert len(error_messages) > 0, "No validation errors found"
+        
+        # Test invalid email
+        email_field = driver.find_element(By.ID, "email")
+        email_field.clear()
+        email_field.send_keys("invalid-email")
+        
+        submit_button.click()
+        
+        # Check for email validation error
+        email_error = wait.until(EC.presence_of_element_located((By.ID, "email-error")))
+        assert "Please enter a valid email" in email_error.text
+        print("✅ Form validation test passed!")
+        
+    except Exception as e:
+        print(f"❌ Form validation test failed: {e}")
+        
+    finally:
+        driver.quit()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- JavaScript Alerts Section -->
+                <section id="javascript-alerts" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                            <i class="fas fa-exclamation-triangle mr-2 text-yellow-600"></i>
+                            JavaScript Alerts
+                        </h2>
+                        
+                        <!-- Alert Handling Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Alert Handling Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Handle different types of JavaScript alerts</span>
+                                    <button class="copy-btn" data-target="alert-handling">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="alert-handling">from selenium.webdriver.common.alert import Alert
+
+def test_alert_handling():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        driver.get("http://localhost:8000/javascript-alerts.html")
+        wait = WebDriverWait(driver, 10)
+        
+        # Test simple alert
+        alert_btn = wait.until(EC.element_to_be_clickable((By.ID, "alert-btn")))
+        alert_btn.click()
+        
+        # Switch to alert and accept
+        alert = Alert(driver)
+        alert_text = alert.text
+        assert "This is a simple alert" in alert_text
+        alert.accept()
+        
+        # Test confirm dialog
+        confirm_btn = driver.find_element(By.ID, "confirm-btn")
+        confirm_btn.click()
+        
+        # Accept confirm dialog
+        confirm_alert = Alert(driver)
+        confirm_alert.accept()
+        
+        # Verify result
+        result_text = driver.find_element(By.ID, "confirm-result")
+        assert "You clicked OK" in result_text.text
+        
+        # Test prompt dialog
+        prompt_btn = driver.find_element(By.ID, "prompt-btn")
+        prompt_btn.click()
+        
+        # Send text to prompt and accept
+        prompt_alert = Alert(driver)
+        prompt_alert.send_keys("Test User")
+        prompt_alert.accept()
+        
+        # Verify prompt result
+        prompt_result = driver.find_element(By.ID, "prompt-result")
+        assert "Test User" in prompt_result.text
+        print("✅ Alert handling test passed!")
+        
+    except Exception as e:
+        print(f"❌ Alert handling test failed: {e}")
+        
+    finally:
+        driver.quit()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dynamic Tables Section -->
+                <section id="dynamic-tables" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                            <i class="fas fa-table mr-2 text-purple-600"></i>
+                            Dynamic Tables
+                        </h2>
+                        
+                        <!-- Table Data Extraction Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Table Data Extraction Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Extract and verify data from dynamic tables</span>
+                                    <button class="copy-btn" data-target="table-extraction">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="table-extraction">def test_table_data_extraction():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        driver.get("http://localhost:8000/dynamic-tables.html")
+        wait = WebDriverWait(driver, 10)
+        
+        # Wait for table to load
+        table = wait.until(EC.presence_of_element_located((By.ID, "data-table")))
+        
+        # Get all rows
+        rows = table.find_elements(By.TAG_NAME, "tr")
+        
+        # Skip header row
+        data_rows = rows[1:]
+        
+        # Extract data from first row
+        first_row_cells = data_rows[0].find_elements(By.TAG_NAME, "td")
+        name = first_row_cells[0].text
+        email = first_row_cells[1].text
+        age = first_row_cells[2].text
+        
+        print(f"First row data: {name}, {email}, {age}")
+        
+        # Verify table has data
+        assert len(data_rows) > 0, "Table should have data rows"
+        assert name != "", "Name should not be empty"
+        
+        # Test sorting functionality
+        name_header = driver.find_element(By.ID, "sort-name")
+        name_header.click()
+        
+        # Wait for sorting to complete
+        time.sleep(1)
+        
+        # Verify sorting worked
+        sorted_rows = table.find_elements(By.TAG_NAME, "tr")[1:]
+        first_sorted_name = sorted_rows[0].find_elements(By.TAG_NAME, "td")[0].text
+        print(f"First name after sorting: {first_sorted_name}")
+        
+        print("✅ Table data extraction test passed!")
+        
+    except Exception as e:
+        print(f"❌ Table data extraction test failed: {e}")
+        
+    finally:
+        driver.quit()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- File Upload Section -->
+                <section id="file-upload" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                            <i class="fas fa-upload mr-2 text-teal-600"></i>
+                            File Upload
+                        </h2>
+                        
+                        <!-- Single File Upload Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Single File Upload Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Upload a single file and verify success</span>
+                                    <button class="copy-btn" data-target="file-upload-single">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="file-upload-single">import os
+
+def test_single_file_upload():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        driver.get("http://localhost:8000/file-upload.html")
+        wait = WebDriverWait(driver, 10)
+        
+        # Create a test file
+        test_file_path = os.path.join(os.getcwd(), "test_file.txt")
+        with open(test_file_path, "w") as f:
+            f.write("This is a test file for upload")
+        
+        # Find file input element
+        file_input = wait.until(EC.presence_of_element_located((By.ID, "profile-picture")))
+        
+        # Upload file
+        file_input.send_keys(test_file_path)
+        
+        # Wait for upload to complete
+        upload_success = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "upload-success")))
+        
+        # Verify upload was successful
+        assert "File uploaded successfully" in upload_success.text
+        
+        # Clean up test file
+        os.remove(test_file_path)
+        print("✅ Single file upload test passed!")
+        
+    except Exception as e:
+        print(f"❌ Single file upload test failed: {e}")
+        
+    finally:
+        driver.quit()</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Multiple File Upload Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Multiple File Upload Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Upload multiple files and verify progress</span>
+                                    <button class="copy-btn" data-target="file-upload-multiple">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="file-upload-multiple">def test_multiple_file_upload():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        driver.get("http://localhost:8000/file-upload.html")
+        wait = WebDriverWait(driver, 10)
+        
+        # Create multiple test files
+        test_files = []
+        for i in range(3):
+            file_path = os.path.join(os.getcwd(), f"test_file_{i}.txt")
+            with open(file_path, "w") as f:
+                f.write(f"This is test file {i}")
+            test_files.append(file_path)
+        
+        # Find multiple file input
+        file_input = wait.until(EC.presence_of_element_located((By.ID, "multiple-files")))
+        
+        # Upload multiple files
+        file_input.send_keys("\n".join(test_files))
+        
+        # Wait for all uploads to complete
+        progress_bars = driver.find_elements(By.CLASS_NAME, "progress-bar")
+        assert len(progress_bars) == 3, "Should have 3 progress bars"
+        
+        # Wait for completion
+        time.sleep(3)
+        
+        # Verify all files uploaded
+        success_messages = driver.find_elements(By.CLASS_NAME, "upload-success")
+        assert len(success_messages) == 3, "All 3 files should be uploaded"
+        
+        # Clean up test files
+        for file_path in test_files:
+            os.remove(file_path)
+        print("✅ Multiple file upload test passed!")
+        
+    except Exception as e:
+        print(f"❌ Multiple file upload test failed: {e}")
+        
+    finally:
+        driver.quit()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Drag & Drop Section -->
+                <section id="drag-drop" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                            <i class="fas fa-mouse-pointer mr-2 text-pink-600"></i>
+                            Drag & Drop
+                        </h2>
+                        
+                        <!-- Drag & Drop File Upload Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Drag & Drop File Upload Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Test drag and drop file upload functionality</span>
+                                    <button class="copy-btn" data-target="drag-drop-upload">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="drag-drop-upload">from selenium.webdriver.common.action_chains import ActionChains
+
+def test_drag_drop_upload():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        driver.get("http://localhost:8000/drag-drop.html")
+        wait = WebDriverWait(driver, 10)
+        
+        # Create test file
+        test_file_path = os.path.join(os.getcwd(), "drag_drop_test.txt")
+        with open(test_file_path, "w") as f:
+            f.write("Test file for drag and drop")
+        
+        # Find drop zone
+        drop_zone = wait.until(EC.presence_of_element_located((By.ID, "single-file-dropzone")))
+        
+        # Create ActionChains for drag and drop
+        actions = ActionChains(driver)
+        
+        # Simulate drag and drop (this is a simplified version)
+        # In real scenarios, you might need to use JavaScript or other methods
+        actions.drag_and_drop_by_offset(drop_zone, 0, 0).perform()
+        
+        # Alternative: Use JavaScript to trigger file drop
+        driver.execute_script("""
+            var dropZone = arguments[0];
+            var fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.files = arguments[1];
+            dropZone.appendChild(fileInput);
+            var event = new Event('change', { bubbles: true });
+            fileInput.dispatchEvent(event);
+        """, drop_zone, test_file_path)
+        
+        # Wait for upload success
+        upload_success = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "upload-success")))
+        assert "File uploaded successfully" in upload_success.text
+        
+        # Clean up
+        os.remove(test_file_path)
+        print("✅ Drag & drop upload test passed!")
+        
+    except Exception as e:
+        print(f"❌ Drag & drop upload test failed: {e}")
+        
+    finally:
+        driver.quit()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Date Picker Section -->
+                <section id="date-picker" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                            <i class="fas fa-calendar-alt mr-2 text-orange-600"></i>
+                            Date Picker
+                        </h2>
+                        
+                        <!-- Date Input Test -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Date Input Test</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Test date input functionality and validation</span>
+                                    <button class="copy-btn" data-target="date-input-test">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="date-input-test">from datetime import datetime, timedelta
+
+def test_date_input():
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    try:
+        driver.get("http://localhost:8000/datepicker.html")
+        wait = WebDriverWait(driver, 10)
+        
+        # Test simple date input
+        simple_date = wait.until(EC.presence_of_element_located((By.ID, "simple-date")))
+        today = datetime.now().strftime("%Y-%m-%d")
+        simple_date.clear()
+        simple_date.send_keys(today)
+        
+        # Test date with limits
+        date_with_limits = driver.find_element(By.ID, "date-with-limits")
+        valid_date = "2024-06-15"
+        date_with_limits.clear()
+        date_with_limits.send_keys(valid_date)
+        
+        # Test date range
+        start_date = driver.find_element(By.ID, "start-date")
+        end_date = driver.find_element(By.ID, "end-date")
+        
+        start_date.clear()
+        start_date.send_keys("2024-01-01")
+        
+        end_date.clear()
+        end_date.send_keys("2024-12-31")
+        
+        # Submit date selection
+        submit_btn = driver.find_element(By.ID, "date-submit")
+        submit_btn.click()
+        
+        # Wait for results
+        results = wait.until(EC.presence_of_element_located((By.ID, "date-results")))
+        assert "Date selection submitted" in results.text
+        
+        print("✅ Date input test passed!")
+        
+    except Exception as e:
+        print(f"❌ Date input test failed: {e}")
+        
+    finally:
+        driver.quit()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Setup Guide Section -->
+                <section id="setup-guide" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                            <i class="fas fa-cog mr-2 text-gray-600"></i>
+                            Setup Guide
+                        </h2>
+                        
+                        <!-- Environment Setup -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Environment Setup</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Complete setup instructions for Selenium testing</span>
+                                    <button class="copy-btn" data-target="setup-environment">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-bash"><code id="setup-environment"># Install Python (if not already installed)
+# Download from https://www.python.org/downloads/
+
+# Create virtual environment
+python -m venv autotestlab_env
+
+# Activate virtual environment
+# Windows:
+autotestlab_env\Scripts\activate
+# macOS/Linux:
+source autotestlab_env/bin/activate
+
+# Install required packages
+pip install selenium
+pip install webdriver-manager
+pip install pytest
+
+# Install Chrome browser (if not already installed)
+# Download from https://www.google.com/chrome/
+
+# Create requirements.txt
+pip freeze > requirements.txt</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Test Runner Setup -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Test Runner Configuration</h3>
+                            <div class="code-container">
+                                <div class="code-header">
+                                    <span class="text-sm text-gray-600">Configure pytest for running Selenium tests</span>
+                                    <button class="copy-btn" data-target="test-runner">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                </div>
+                                <pre class="language-python"><code id="test-runner"># conftest.py - Pytest configuration
+import pytest
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+@pytest.fixture(scope="function")
+def driver():
+    """Setup WebDriver for each test"""
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    driver.maximize_window()
+    yield driver
+    driver.quit()
+
+@pytest.fixture(scope="session")
+def base_url():
+    """Base URL for the application"""
+    return "http://localhost:8000"
+
+# Run tests with: pytest -v --html=report.html</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </h3>
+                    <p class="text-gray-300">Your comprehensive platform for learning and practicing automation testing with Selenium and other tools.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="test-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Test Scenarios</a></li>
+                        <li><a href="login-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Login Scenarios</a></li>
+                        <li><a href="form-handling.html" class="text-gray-300 hover:text-white transition duration-300">Form Handling</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="docs.html" class="text-gray-300 hover:text-white transition duration-300">Documentation</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">API Reference</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2025 AutoTestLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Prism.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    
+    <script src="script.js"></script>
+    <script src="docs.js"></script>
+</body>
+</html> 

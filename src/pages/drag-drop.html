@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop - AutoTestLab</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="test-scenarios.html" class="nav-link">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link active">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link">Date Picker</a>
+                    <a href="docs.html" class="nav-link">Docs</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="nav-link-mobile">Home</a>
+                    <a href="test-scenarios.html" class="nav-link-mobile">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link-mobile">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link-mobile">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link-mobile">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link-mobile">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link-mobile">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link-mobile active">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link-mobile">Date Picker</a>
+                    <a href="docs.html" class="nav-link-mobile">Docs</a>
+                    <a href="about.html" class="nav-link-mobile">About</a>
+                    <a href="contact.html" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Drag & Drop Test Scenarios</h1>
+            <p class="text-xl mb-8">Practice Selenium automation with drag and drop functionality including file uploads, list reordering, and card sorting</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-mouse-pointer mr-2"></i>File Upload
+                </span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-list-ol mr-2"></i>List Reordering
+                </span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-th-large mr-2"></i>Card Sorting
+                </span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-exchange-alt mr-2"></i>Item Transfer
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Drag & Drop Section -->
+            <div class="lg:col-span-2">
+                <!-- File Upload Drag & Drop -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-cloud-upload-alt mr-2 text-purple-600"></i>
+                        File Upload Drag & Drop
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Single File Drop Zone -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Single File Upload <span class="text-red-500">*</span>
+                            </label>
+                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-purple-400 transition-colors duration-200" id="single-file-dropzone">
+                                <div class="space-y-1 text-center">
+                                    <i class="fas fa-file-upload text-gray-400 text-3xl mb-2"></i>
+                                    <div class="text-sm text-gray-600">
+                                        <p>Drag and drop a single file here</p>
+                                        <p class="text-xs text-gray-500">or click to browse</p>
+                                    </div>
+                                    <p class="text-xs text-gray-500">PDF, DOC, TXT up to 5MB</p>
+                                </div>
+                            </div>
+                            <div id="single-file-preview" class="mt-4 hidden">
+                                <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-file-alt text-purple-600"></i>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900" id="single-file-name"></p>
+                                            <p class="text-xs text-gray-500" id="single-file-size"></p>
+                                        </div>
+                                    </div>
+                                    <button id="remove-single-file" class="text-red-600 hover:text-red-800" aria-label="Remove file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Multiple Files Drop Zone -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Multiple Files Upload
+                            </label>
+                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-pink-400 transition-colors duration-200" id="multiple-files-dropzone">
+                                <div class="space-y-1 text-center">
+                                    <i class="fas fa-layer-group text-gray-400 text-3xl mb-2"></i>
+                                    <div class="text-sm text-gray-600">
+                                        <p>Drag and drop multiple files here</p>
+                                        <p class="text-xs text-gray-500">or click to browse</p>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Images, Documents up to 10MB each</p>
+                                </div>
+                            </div>
+                            <div id="multiple-files-list" class="mt-4 space-y-2"></div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
+                            <button id="upload-submit" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition duration-300">
+                                <span id="upload-submit-text">Upload Files</span>
+                                <span id="upload-spinner" class="hidden ml-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                            </button>
+                        </div>
+
+                        <!-- Upload Results -->
+                        <div id="upload-results" class="hidden p-4 rounded-lg"></div>
+                    </div>
+                </div>
+
+                <!-- List Reordering -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-list-ol mr-2 text-blue-600"></i>
+                        List Reordering
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <p class="text-gray-600">Drag and drop items to reorder the list:</p>
+                        
+                        <div id="reorderable-list" class="space-y-2">
+                            <div class="draggable-item bg-blue-50 border border-blue-200 rounded-lg p-4 cursor-move hover:bg-blue-100 transition-colors duration-200" draggable="true" data-id="1">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-grip-vertical text-blue-400"></i>
+                                        <div>
+                                            <h3 class="font-medium text-gray-900">Task 1: Complete Project Setup</h3>
+                                            <p class="text-sm text-gray-600">High Priority</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">1</span>
+                                </div>
+                            </div>
+                            
+                            <div class="draggable-item bg-green-50 border border-green-200 rounded-lg p-4 cursor-move hover:bg-green-100 transition-colors duration-200" draggable="true" data-id="2">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-grip-vertical text-green-400"></i>
+                                        <div>
+                                            <h3 class="font-medium text-gray-900">Task 2: Write Test Cases</h3>
+                                            <p class="text-sm text-gray-600">Medium Priority</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">2</span>
+                                </div>
+                            </div>
+                            
+                            <div class="draggable-item bg-yellow-50 border border-yellow-200 rounded-lg p-4 cursor-move hover:bg-yellow-100 transition-colors duration-200" draggable="true" data-id="3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-grip-vertical text-yellow-400"></i>
+                                        <div>
+                                            <h3 class="font-medium text-gray-900">Task 3: Review Code</h3>
+                                            <p class="text-sm text-gray-600">Low Priority</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">3</span>
+                                </div>
+                            </div>
+                            
+                            <div class="draggable-item bg-red-50 border border-red-200 rounded-lg p-4 cursor-move hover:bg-red-100 transition-colors duration-200" draggable="true" data-id="4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-grip-vertical text-red-400"></i>
+                                        <div>
+                                            <h3 class="font-medium text-gray-900">Task 4: Deploy to Production</h3>
+                                            <p class="text-sm text-gray-600">Critical Priority</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full">4</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-3 bg-gray-50 rounded-lg">
+                            <p class="text-sm text-gray-600">
+                                <strong>Current Order:</strong> <span id="current-order">1, 2, 3, 4</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Sorting -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-th-large mr-2 text-green-600"></i>
+                        Card Sorting
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <p class="text-gray-600">Drag cards between different categories:</p>
+                        
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <!-- To Do Column -->
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h3 class="font-semibold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-clock mr-2 text-gray-500"></i>
+                                    To Do
+                                </h3>
+                                <div id="todo-column" class="space-y-3 min-h-40">
+                                    <div class="card-item bg-white border border-gray-200 rounded-lg p-3 cursor-move hover:shadow-md transition-shadow duration-200" draggable="true" data-category="todo">
+                                        <h4 class="font-medium text-gray-900">Design Mockups</h4>
+                                        <p class="text-sm text-gray-600">Create UI/UX designs</p>
+                                    </div>
+                                    <div class="card-item bg-white border border-gray-200 rounded-lg p-3 cursor-move hover:shadow-md transition-shadow duration-200" draggable="true" data-category="todo">
+                                        <h4 class="font-medium text-gray-900">Database Schema</h4>
+                                        <p class="text-sm text-gray-600">Plan database structure</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- In Progress Column -->
+                            <div class="bg-blue-50 rounded-lg p-4">
+                                <h3 class="font-semibold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-spinner mr-2 text-blue-500"></i>
+                                    In Progress
+                                </h3>
+                                <div id="progress-column" class="space-y-3 min-h-40">
+                                    <div class="card-item bg-white border border-blue-200 rounded-lg p-3 cursor-move hover:shadow-md transition-shadow duration-200" draggable="true" data-category="progress">
+                                        <h4 class="font-medium text-gray-900">Frontend Development</h4>
+                                        <p class="text-sm text-gray-600">Building React components</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Done Column -->
+                            <div class="bg-green-50 rounded-lg p-4">
+                                <h3 class="font-semibold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-check-circle mr-2 text-green-500"></i>
+                                    Done
+                                </h3>
+                                <div id="done-column" class="space-y-3 min-h-40">
+                                    <div class="card-item bg-white border border-green-200 rounded-lg p-3 cursor-move hover:shadow-md transition-shadow duration-200" draggable="true" data-category="done">
+                                        <h4 class="font-medium text-gray-900">Project Planning</h4>
+                                        <p class="text-sm text-gray-600">Requirements gathering</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-3 bg-gray-50 rounded-lg">
+                            <p class="text-sm text-gray-600">
+                                <strong>Cards moved:</strong> <span id="cards-moved">0</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Test Buttons -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-rocket mr-2 text-purple-600"></i>
+                        Quick Test Buttons
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <button id="quick-test-file" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300">
+                            <i class="fas fa-file-upload mr-2"></i>Test File Drop
+                        </button>
+                        <button id="quick-test-reorder" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-sort mr-2"></i>Test Reorder
+                        </button>
+                        <button id="quick-test-sort" class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">
+                            <i class="fas fa-th-large mr-2"></i>Test Sort
+                        </button>
+                        <button id="quick-test-reset" class="bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300">
+                            <i class="fas fa-undo mr-2"></i>Reset All
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Use these buttons to quickly test different drag & drop scenarios. Keyboard shortcuts: Ctrl/Cmd + 1-4
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <!-- Test Cases -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-list-check mr-2 text-purple-600"></i>
+                        Test Cases
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-purple-50 border-l-4 border-purple-500 rounded">
+                            <h4 class="font-semibold text-purple-800">File Upload Drag & Drop</h4>
+                            <p class="text-sm text-purple-700">Test dragging files to upload zones</p>
+                        </div>
+                        <div class="p-3 bg-blue-50 border-l-4 border-blue-500 rounded">
+                            <h4 class="font-semibold text-blue-800">List Reordering</h4>
+                            <p class="text-sm text-blue-700">Test dragging items to reorder lists</p>
+                        </div>
+                        <div class="p-3 bg-green-50 border-l-4 border-green-500 rounded">
+                            <h4 class="font-semibold text-green-800">Card Sorting</h4>
+                            <p class="text-sm text-green-700">Test moving cards between columns</p>
+                        </div>
+                        <div class="p-3 bg-yellow-50 border-l-4 border-yellow-500 rounded">
+                            <h4 class="font-semibold text-yellow-800">Drop Zone Validation</h4>
+                            <p class="text-sm text-yellow-700">Test invalid drop scenarios</p>
+                        </div>
+                        <div class="p-3 bg-red-50 border-l-4 border-red-500 rounded">
+                            <h4 class="font-semibold text-red-800">Visual Feedback</h4>
+                            <p class="text-sm text-red-700">Test drag states and animations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Element Locators -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-search mr-2 text-blue-600"></i>
+                        Element Locators Reference
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <strong>Single File Dropzone:</strong> <code class="bg-gray-100 px-1 rounded">#single-file-dropzone</code>
+                        </div>
+                        <div>
+                            <strong>Multiple Files Dropzone:</strong> <code class="bg-gray-100 px-1 rounded">#multiple-files-dropzone</code>
+                        </div>
+                        <div>
+                            <strong>Draggable Items:</strong> <code class="bg-gray-100 px-1 rounded">.draggable-item</code>
+                        </div>
+                        <div>
+                            <strong>Card Items:</strong> <code class="bg-gray-100 px-1 rounded">.card-item</code>
+                        </div>
+                        <div>
+                            <strong>Todo Column:</strong> <code class="bg-gray-100 px-1 rounded">#todo-column</code>
+                        </div>
+                        <div>
+                            <strong>Progress Column:</strong> <code class="bg-gray-100 px-1 rounded">#progress-column</code>
+                        </div>
+                        <div>
+                            <strong>Done Column:</strong> <code class="bg-gray-100 px-1 rounded">#done-column</code>
+                        </div>
+                        <div>
+                            <strong>Upload Submit:</strong> <code class="bg-gray-100 px-1 rounded">#upload-submit</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selenium Tips -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-lightbulb mr-2 text-yellow-600"></i>
+                        Selenium Testing Tips
+                    </h3>
+                    <div class="space-y-3 text-sm text-gray-700">
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Use ActionChains for drag and drop operations</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Test both drag source and drop target elements</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Verify visual feedback during drag operations</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Test invalid drop scenarios and error handling</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Check state changes after successful drops</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Test accessibility with keyboard navigation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </h3>
+                    <p class="text-gray-300">Your comprehensive platform for learning and practicing automation testing with Selenium and other tools.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="test-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Test Scenarios</a></li>
+                        <li><a href="login-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Login Scenarios</a></li>
+                        <li><a href="form-handling.html" class="text-gray-300 hover:text-white transition duration-300">Form Handling</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Documentation</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">API Reference</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2025 AutoTestLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="drag-drop.js"></script>
+</body>
+</html> 

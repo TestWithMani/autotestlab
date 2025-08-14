@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload - AutoTestLab</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="test-scenarios.html" class="nav-link">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link active">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link">Date Picker</a>
+                    <a href="docs.html" class="nav-link">Docs</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="nav-link-mobile">Home</a>
+                    <a href="test-scenarios.html" class="nav-link-mobile">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link-mobile">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link-mobile">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link-mobile">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link-mobile">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link-mobile active">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link-mobile">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link-mobile">Date Picker</a>
+                    <a href="docs.html" class="nav-link-mobile">Docs</a>
+                    <a href="about.html" class="nav-link-mobile">About</a>
+                    <a href="contact.html" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-green-600 to-teal-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">File Upload Test Scenarios</h1>
+            <p class="text-xl mb-8">Practice Selenium automation with file upload functionality including drag & drop, validation, and progress tracking</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-upload mr-2"></i>Single Upload
+                </span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-layer-group mr-2"></i>Multiple Upload
+                </span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-mouse-pointer mr-2"></i>Drag & Drop
+                </span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-shield-alt mr-2"></i>File Validation
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Upload Section -->
+            <div class="lg:col-span-2">
+                <!-- Single File Upload -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-file-upload mr-2 text-green-600"></i>
+                        Single File Upload
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Profile Picture Upload -->
+                        <div>
+                            <label for="profile-picture" class="block text-sm font-medium text-gray-700 mb-2">
+                                Profile Picture <span class="text-red-500">*</span>
+                            </label>
+                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-green-400 transition-colors duration-200" id="profile-upload-area">
+                                <div class="space-y-1 text-center">
+                                    <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                    <div class="flex text-sm text-gray-600">
+                                        <label for="profile-picture" class="relative cursor-pointer bg-white rounded-md font-medium text-green-600 hover:text-green-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-green-500">
+                                            <span>Upload a file</span>
+                                            <input id="profile-picture" name="profile-picture" type="file" class="sr-only" accept="image/*" aria-describedby="profile-picture-error">
+                                        </label>
+                                        <p class="pl-1">or drag and drop</p>
+                                    </div>
+                                    <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                                </div>
+                            </div>
+                            <p id="profile-picture-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                            <div id="profile-preview" class="mt-4 hidden">
+                                <img id="profile-preview-img" class="w-32 h-32 object-cover rounded-lg border" alt="Profile preview">
+                                <button id="remove-profile" class="mt-2 text-sm text-red-600 hover:text-red-800">
+                                    <i class="fas fa-trash mr-1"></i>Remove
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Document Upload -->
+                        <div>
+                            <label for="document-upload" class="block text-sm font-medium text-gray-700 mb-2">
+                                Document Upload
+                            </label>
+                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-blue-400 transition-colors duration-200" id="document-upload-area">
+                                <div class="space-y-1 text-center">
+                                    <i class="fas fa-file-alt text-gray-400 text-3xl mb-2"></i>
+                                    <div class="flex text-sm text-gray-600">
+                                        <label for="document-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
+                                            <span>Upload documents</span>
+                                            <input id="document-upload" name="document-upload" type="file" class="sr-only" accept=".pdf,.doc,.docx,.txt" multiple aria-describedby="document-upload-error">
+                                        </label>
+                                        <p class="pl-1">or drag and drop</p>
+                                    </div>
+                                    <p class="text-xs text-gray-500">PDF, DOC, DOCX, TXT up to 5MB each</p>
+                                </div>
+                            </div>
+                            <p id="document-upload-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                            <div id="document-list" class="mt-4 space-y-2"></div>
+                        </div>
+
+                        <!-- Resume Upload with Progress -->
+                        <div>
+                            <label for="resume-upload" class="block text-sm font-medium text-gray-700 mb-2">
+                                Resume Upload (with Progress)
+                            </label>
+                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-purple-400 transition-colors duration-200" id="resume-upload-area">
+                                <div class="space-y-1 text-center">
+                                    <i class="fas fa-file-pdf text-gray-400 text-3xl mb-2"></i>
+                                    <div class="flex text-sm text-gray-600">
+                                        <label for="resume-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-purple-600 hover:text-purple-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-purple-500">
+                                            <span>Upload resume</span>
+                                            <input id="resume-upload" name="resume-upload" type="file" class="sr-only" accept=".pdf,.doc,.docx" aria-describedby="resume-upload-error">
+                                        </label>
+                                        <p class="pl-1">or drag and drop</p>
+                                    </div>
+                                    <p class="text-xs text-gray-500">PDF, DOC, DOCX up to 2MB</p>
+                                </div>
+                            </div>
+                            <p id="resume-upload-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                            
+                            <!-- Progress Bar -->
+                            <div id="resume-progress" class="mt-4 hidden">
+                                <div class="flex items-center justify-between text-sm text-gray-600 mb-2">
+                                    <span id="resume-filename">Uploading...</span>
+                                    <span id="resume-percentage">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div id="resume-progress-bar" class="bg-purple-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
+                            <button id="upload-submit" class="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-300">
+                                <span id="upload-submit-text">Submit Uploads</span>
+                                <span id="upload-spinner" class="hidden ml-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                            </button>
+                        </div>
+
+                        <!-- Upload Results -->
+                        <div id="upload-results" class="hidden p-4 rounded-lg"></div>
+                    </div>
+                </div>
+
+                <!-- Quick Test Buttons -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-rocket mr-2 text-green-600"></i>
+                        Quick Test Buttons
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <button id="quick-test-valid" class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">
+                            <i class="fas fa-check mr-2"></i>Valid Files
+                        </button>
+                        <button id="quick-test-invalid" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">
+                            <i class="fas fa-times mr-2"></i>Invalid Files
+                        </button>
+                        <button id="quick-test-large" class="bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition duration-300">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>Large Files
+                        </button>
+                        <button id="quick-test-multiple" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300">
+                            <i class="fas fa-layer-group mr-2"></i>Multiple Files
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Use these buttons to quickly test different upload scenarios. Keyboard shortcuts: Ctrl/Cmd + 1-4
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <!-- Test Cases -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-list-check mr-2 text-green-600"></i>
+                        Test Cases
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-green-50 border-l-4 border-green-500 rounded">
+                            <h4 class="font-semibold text-green-800">Valid File Upload</h4>
+                            <p class="text-sm text-green-700">Test upload with valid file types and sizes</p>
+                        </div>
+                        <div class="p-3 bg-red-50 border-l-4 border-red-500 rounded">
+                            <h4 class="font-semibold text-red-800">Invalid File Type</h4>
+                            <p class="text-sm text-red-700">Test rejection of unsupported file types</p>
+                        </div>
+                        <div class="p-3 bg-orange-50 border-l-4 border-orange-500 rounded">
+                            <h4 class="font-semibold text-orange-800">File Size Validation</h4>
+                            <p class="text-sm text-orange-700">Test upload limits and size restrictions</p>
+                        </div>
+                        <div class="p-3 bg-blue-50 border-l-4 border-blue-500 rounded">
+                            <h4 class="font-semibold text-blue-800">Drag & Drop</h4>
+                            <p class="text-sm text-blue-700">Test drag and drop functionality</p>
+                        </div>
+                        <div class="p-3 bg-purple-50 border-l-4 border-purple-500 rounded">
+                            <h4 class="font-semibold text-purple-800">Multiple File Upload</h4>
+                            <p class="text-sm text-purple-700">Test uploading multiple files at once</p>
+                        </div>
+                        <div class="p-3 bg-teal-50 border-l-4 border-teal-500 rounded">
+                            <h4 class="font-semibold text-teal-800">Progress Tracking</h4>
+                            <p class="text-sm text-teal-700">Test upload progress indication</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Element Locators -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-search mr-2 text-blue-600"></i>
+                        Element Locators Reference
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <strong>Profile Picture:</strong> <code class="bg-gray-100 px-1 rounded">#profile-picture</code>
+                        </div>
+                        <div>
+                            <strong>Document Upload:</strong> <code class="bg-gray-100 px-1 rounded">#document-upload</code>
+                        </div>
+                        <div>
+                            <strong>Resume Upload:</strong> <code class="bg-gray-100 px-1 rounded">#resume-upload</code>
+                        </div>
+                        <div>
+                            <strong>Upload Areas:</strong> <code class="bg-gray-100 px-1 rounded">#profile-upload-area</code>
+                        </div>
+                        <div>
+                            <strong>Progress Bar:</strong> <code class="bg-gray-100 px-1 rounded">#resume-progress-bar</code>
+                        </div>
+                        <div>
+                            <strong>Submit Button:</strong> <code class="bg-gray-100 px-1 rounded">#upload-submit</code>
+                        </div>
+                        <div>
+                            <strong>File List:</strong> <code class="bg-gray-100 px-1 rounded">#document-list</code>
+                        </div>
+                        <div>
+                            <strong>Error Messages:</strong> <code class="bg-gray-100 px-1 rounded">#profile-picture-error</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selenium Tips -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-lightbulb mr-2 text-yellow-600"></i>
+                        Selenium Testing Tips
+                    </h3>
+                    <div class="space-y-3 text-sm text-gray-700">
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Use absolute file paths for upload testing</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Test file type validation with various extensions</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Verify upload progress indicators</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Test drag and drop with ActionChains</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Check error messages for invalid uploads</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Verify file preview and removal functionality</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </h3>
+                    <p class="text-gray-300">Your comprehensive platform for learning and practicing automation testing with Selenium and other tools.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="test-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Test Scenarios</a></li>
+                        <li><a href="login-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Login Scenarios</a></li>
+                        <li><a href="form-handling.html" class="text-gray-300 hover:text-white transition duration-300">Form Handling</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Documentation</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">API Reference</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2025 AutoTestLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="file-upload.js"></script>
+</body>
+</html> 

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Scenarios - AutoTestLab</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="test-scenarios.html" class="nav-link active">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link">Date Picker</a>
+                    <a href="docs.html" class="nav-link">Docs</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="nav-link-mobile">Home</a>
+                    <a href="test-scenarios.html" class="nav-link-mobile active">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link-mobile">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link-mobile">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link-mobile">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link-mobile">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link-mobile">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link-mobile">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link-mobile">Date Picker</a>
+                    <a href="docs.html" class="nav-link-mobile">Docs</a>
+                    <a href="about.html" class="nav-link-mobile">About</a>
+                    <a href="contact.html" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        <!-- Page Header -->
+        <section class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Test Scenarios Overview</h1>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Explore our comprehensive collection of Selenium test scenarios. Each page provides real, interactive elements for practicing automation testing with detailed examples and guidance.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 mt-8">
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                        <i class="fas fa-play-circle mr-2"></i>Interactive Demos
+                    </span>
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                        <i class="fas fa-code mr-2"></i>Real Elements
+                    </span>
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                        <i class="fas fa-book mr-2"></i>Detailed Guides
+                    </span>
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">
+                        <i class="fas fa-download mr-2"></i>Code Examples
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Scenarios Grid -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Login Scenarios -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-gradient-to-r from-green-500 to-green-600 p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Login Scenarios</h3>
+                                    <p class="text-green-100">Authentication & User Management</p>
+                                </div>
+                                <i class="fas fa-sign-in-alt text-3xl opacity-80"></i>
+                                    </div>
+                                </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">
+                                Practice login automation with various scenarios including valid credentials, invalid attempts, and account lockout functionality.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Valid Login</span>
+                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">Invalid Credentials</span>
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Account Lockout</span>
+                                        </div>
+                            <a href="login-scenarios.html" class="inline-flex items-center bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                                <i class="fas fa-play mr-2"></i>
+                                Start Testing
+                            </a>
+                                    </div>
+                                </div>
+
+                    <!-- Form Handling -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Form Handling</h3>
+                                    <p class="text-blue-100">Registration & Data Entry</p>
+                                </div>
+                                <i class="fas fa-wpforms text-3xl opacity-80"></i>
+                                    </div>
+                                </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">
+                                Master form automation with comprehensive registration forms, validation testing, and dynamic form interactions.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Registration</span>
+                                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Validation</span>
+                                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Dynamic Fields</span>
+                                        </div>
+                            <a href="form-handling.html" class="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                                <i class="fas fa-play mr-2"></i>
+                                Start Testing
+                            </a>
+                                    </div>
+                                </div>
+
+                    <!-- JavaScript Alerts -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">JavaScript Alerts</h3>
+                                    <p class="text-yellow-100">Alert & Dialog Handling</p>
+                                </div>
+                                <i class="fas fa-exclamation-triangle text-3xl opacity-80"></i>
+                                    </div>
+                                </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">
+                                Learn to handle JavaScript alerts, confirm dialogs, and prompt boxes with proper automation techniques.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Basic Alerts</span>
+                                <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">Confirm Dialogs</span>
+                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">Prompt Boxes</span>
+                            </div>
+                            <a href="javascript-alerts.html" class="inline-flex items-center bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition duration-300">
+                                <i class="fas fa-play mr-2"></i>
+                                Start Testing
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Tables -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                        <div>
+                                    <h3 class="text-xl font-bold mb-2">Dynamic Tables</h3>
+                                    <p class="text-purple-100">Data Tables & Sorting</p>
+                                </div>
+                                <i class="fas fa-table text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                                            <p class="text-gray-600 mb-4">
+                                Practice working with dynamic tables, sorting functionality, and data extraction from complex table structures.
+                                            </p>
+                                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Sorting</span>
+                                <span class="px-2 py-1 bg-pink-100 text-pink-800 text-xs rounded-full">Pagination</span>
+                                <span class="px-2 py-1 bg-violet-100 text-violet-800 text-xs rounded-full">Data Extraction</span>
+                                            </div>
+                            <a href="dynamic-tables.html" class="inline-flex items-center bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-300">
+                                <i class="fas fa-play mr-2"></i>
+                                Start Testing
+                            </a>
+                                    </div>
+                                </div>
+
+                    <!-- File Upload -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-gradient-to-r from-teal-500 to-teal-600 p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                        <div>
+                                    <h3 class="text-xl font-bold mb-2">File Upload</h3>
+                                    <p class="text-teal-100">File Handling & Uploads</p>
+                                </div>
+                                <i class="fas fa-upload text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                                            <p class="text-gray-600 mb-4">
+                                Master file upload automation including single files, multiple files, and progress tracking functionality.
+                                            </p>
+                                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-teal-100 text-teal-800 text-xs rounded-full">Single File</span>
+                                <span class="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs rounded-full">Multiple Files</span>
+                                <span class="px-2 py-1 bg-emerald-100 text-emerald-800 text-xs rounded-full">Progress Tracking</span>
+                            </div>
+                            <a href="file-upload.html" class="inline-flex items-center bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition duration-300">
+                                <i class="fas fa-play mr-2"></i>
+                                Start Testing
+                            </a>
+                                            </div>
+                                        </div>
+
+                    <!-- Drag & Drop -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-gradient-to-r from-pink-500 to-pink-600 p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Drag & Drop</h3>
+                                    <p class="text-pink-100">Interactive Elements</p>
+                                </div>
+                                <i class="fas fa-mouse-pointer text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                                            <p class="text-gray-600 mb-4">
+                                Learn drag and drop automation including file uploads, list reordering, and card sorting functionality.
+                                            </p>
+                                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-pink-100 text-pink-800 text-xs rounded-full">File Drop</span>
+                                <span class="px-2 py-1 bg-rose-100 text-rose-800 text-xs rounded-full">List Reorder</span>
+                                <span class="px-2 py-1 bg-fuchsia-100 text-fuchsia-800 text-xs rounded-full">Card Sorting</span>
+                                            </div>
+                            <a href="drag-drop.html" class="inline-flex items-center bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition duration-300">
+                                <i class="fas fa-play mr-2"></i>
+                                Start Testing
+                            </a>
+                                    </div>
+                                </div>
+
+                    <!-- Date Picker -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-gradient-to-r from-orange-500 to-red-500 p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                        <div>
+                                    <h3 class="text-xl font-bold mb-2">Date Picker</h3>
+                                    <p class="text-orange-100">Date & Time Selection</p>
+                                </div>
+                                <i class="fas fa-calendar-alt text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                                            <p class="text-gray-600 mb-4">
+                                Practice date and time input automation including date pickers, range selection, and validation testing.
+                                            </p>
+                                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">Date Input</span>
+                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">Date Range</span>
+                                <span class="px-2 py-1 bg-amber-100 text-amber-800 text-xs rounded-full">Time Selection</span>
+                                            </div>
+                            <a href="datepicker.html" class="inline-flex items-center bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition duration-300">
+                                <i class="fas fa-play mr-2"></i>
+                                Start Testing
+                            </a>
+                                    </div>
+                                </div>
+
+                                            </div>
+                                        </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="bg-gray-50 py-12">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose AutoTestLab?</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Our test scenarios are designed to provide real-world automation practice with comprehensive examples and guidance.
+                    </p>
+                                    </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-2xl text-blue-600"></i>
+                                    </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Real Elements</h3>
+                        <p class="text-gray-600">All test scenarios use actual HTML elements and interactions that you'll encounter in real applications.</p>
+                                </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-book text-2xl text-green-600"></i>
+                                            </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Detailed Documentation</h3>
+                        <p class="text-gray-600">Each scenario includes comprehensive documentation with code examples and best practices.</p>
+                                        </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-download text-2xl text-purple-600"></i>
+                                    </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Ready-to-Use Code</h3>
+                        <p class="text-gray-600">Copy and use our Selenium code examples directly in your automation projects.</p>
+                                    </div>
+                                </div>
+                            </div>
+        </section>
+
+        <!-- Quick Start Guide -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Quick Start Guide</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Getting Started</h3>
+                            <ol class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">1</span>
+                                    <span>Choose a test scenario from the cards above</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">2</span>
+                                    <span>Explore the interactive elements on the test page</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">3</span>
+                                    <span>Review the Selenium code examples in the sidebar</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">4</span>
+                                    <span>Practice automation with the provided test cases</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">What You'll Learn</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                    <span>Element locator strategies and best practices</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                    <span>Handling dynamic content and wait strategies</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                    <span>Form automation and validation testing</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                    <span>Advanced interactions like drag & drop</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                    <span>Error handling and test reporting</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </h3>
+                    <p class="text-gray-300">Your comprehensive platform for learning and practicing automation testing with Selenium and other tools.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="test-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Test Scenarios</a></li>
+                        <li><a href="login-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Login Scenarios</a></li>
+                        <li><a href="form-handling.html" class="text-gray-300 hover:text-white transition duration-300">Form Handling</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="docs.html" class="text-gray-300 hover:text-white transition duration-300">Documentation</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">API Reference</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2025 AutoTestLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="test-scenarios.js"></script>
+</body>
+</html> 

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker - AutoTestLab</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="test-scenarios.html" class="nav-link">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link active">Date Picker</a>
+                    <a href="docs.html" class="nav-link">Docs</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="nav-link-mobile">Home</a>
+                    <a href="test-scenarios.html" class="nav-link-mobile">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link-mobile">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link-mobile">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link-mobile">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link-mobile">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link-mobile">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link-mobile">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link-mobile active">Date Picker</a>
+                    <a href="docs.html" class="nav-link-mobile">Docs</a>
+                    <a href="about.html" class="nav-link-mobile">About</a>
+                    <a href="contact.html" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-orange-600 to-red-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Date Picker Test Scenarios</h1>
+            <p class="text-xl mb-8">Practice Selenium automation with date picker functionality including calendar inputs, date validation, and range selection</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Date Picker Section -->
+            <div class="lg:col-span-2">
+                <!-- Basic Date Input -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-calendar-alt mr-2 text-orange-600"></i>
+                        Basic Date Input
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Simple Date Input -->
+                        <div>
+                            <label for="simple-date" class="block text-sm font-medium text-gray-700 mb-2">
+                                Simple Date Input <span class="text-red-500">*</span>
+                            </label>
+                            <input type="date" id="simple-date" name="simple-date" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition duration-300"
+                                   aria-describedby="simple-date-error">
+                            <p id="simple-date-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        </div>
+
+                        <!-- Date with Limits -->
+                        <div>
+                            <label for="date-with-limits" class="block text-sm font-medium text-gray-700 mb-2">
+                                Date with Min/Max Limits
+                            </label>
+                            <input type="date" id="date-with-limits" name="date-with-limits" 
+                                   min="2024-01-01" max="2024-12-31"
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition duration-300"
+                                   aria-describedby="date-with-limits-error">
+                            <p class="mt-2 text-sm text-gray-500">Select date between Jan 1, 2024 and Dec 31, 2024</p>
+                            <p id="date-with-limits-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        </div>
+
+                        <!-- Date with Placeholder -->
+                        <div>
+                            <label for="date-with-placeholder" class="block text-sm font-medium text-gray-700 mb-2">
+                                Date with Custom Format
+                            </label>
+                            <input type="text" id="date-with-placeholder" name="date-with-placeholder" 
+                                   placeholder="MM/DD/YYYY"
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition duration-300"
+                                   aria-describedby="date-with-placeholder-error">
+                            <p class="mt-2 text-sm text-gray-500">Enter date in MM/DD/YYYY format</p>
+                            <p id="date-with-placeholder-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date Range Selection -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-calendar-day mr-2 text-blue-600"></i>
+                        Date Range Selection
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Start Date -->
+                        <div>
+                            <label for="start-date" class="block text-sm font-medium text-gray-700 mb-2">
+                                Start Date <span class="text-red-500">*</span>
+                            </label>
+                            <input type="date" id="start-date" name="start-date" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                   aria-describedby="start-date-error">
+                            <p id="start-date-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        </div>
+
+                        <!-- End Date -->
+                        <div>
+                            <label for="end-date" class="block text-sm font-medium text-gray-700 mb-2">
+                                End Date <span class="text-red-500">*</span>
+                            </label>
+                            <input type="date" id="end-date" name="end-date" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                   aria-describedby="end-date-error">
+                            <p id="end-date-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        </div>
+
+                        <!-- Range Display -->
+                        <div id="range-display" class="hidden p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">Selected Range:</h4>
+                            <p class="text-blue-700">
+                                <span id="range-start">Start Date</span> to <span id="range-end">End Date</span> 
+                                (<span id="range-days">0</span> days)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date & Time Input -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-clock mr-2 text-green-600"></i>
+                        Date & Time Input
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <!-- Meeting Date -->
+                            <div>
+                                <label for="meeting-date" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Meeting Date <span class="text-red-500">*</span>
+                                </label>
+                                <input type="date" id="meeting-date" name="meeting-date" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300"
+                                       aria-describedby="meeting-date-error">
+                                <p id="meeting-date-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                            </div>
+
+                            <!-- Meeting Time -->
+                            <div>
+                                <label for="meeting-time" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Meeting Time <span class="text-red-500">*</span>
+                                </label>
+                                <input type="time" id="meeting-time" name="meeting-time" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300"
+                                       aria-describedby="meeting-time-error">
+                                <p id="meeting-time-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                            </div>
+                        </div>
+
+                        <!-- DateTime Local -->
+                        <div>
+                            <label for="datetime-local" class="block text-sm font-medium text-gray-700 mb-2">
+                                Date & Time (Local)
+                            </label>
+                            <input type="datetime-local" id="datetime-local" name="datetime-local" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300"
+                                   aria-describedby="datetime-local-error">
+                            <p id="datetime-local-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <button id="date-submit" 
+                            class="w-full bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition duration-300">
+                        <span id="date-submit-text">Submit Date Selection</span>
+                        <span id="date-spinner" class="hidden ml-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                    </button>
+                </div>
+
+                <!-- Results Display -->
+                <div id="date-results" class="hidden p-4 rounded-lg"></div>
+
+                <!-- Quick Test Buttons -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-rocket mr-2 text-orange-600"></i>
+                        Quick Test Buttons
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <button id="quick-test-today" 
+                                class="bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition duration-300">
+                            <i class="fas fa-calendar-day mr-2"></i>Set Today
+                        </button>
+                        <button id="quick-test-range" 
+                                class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-calendar-week mr-2"></i>Set Range
+                        </button>
+                        <button id="quick-test-meeting" 
+                                class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">
+                            <i class="fas fa-clock mr-2"></i>Set Meeting
+                        </button>
+                        <button id="quick-test-clear" 
+                                class="bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300">
+                            <i class="fas fa-undo mr-2"></i>Clear All
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Use these buttons to quickly test different date scenarios. Keyboard shortcuts: Ctrl/Cmd + 1-4
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <!-- Test Cases -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-list-check mr-2 text-orange-600"></i>
+                        Test Cases
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-orange-50 border-l-4 border-orange-500 rounded">
+                            <h4 class="font-semibold text-orange-800">Basic Date Input</h4>
+                            <p class="text-sm text-orange-700">Test simple date selection</p>
+                        </div>
+                        <div class="p-3 bg-blue-50 border-l-4 border-blue-500 rounded">
+                            <h4 class="font-semibold text-blue-800">Date Range Selection</h4>
+                            <p class="text-sm text-blue-700">Test start and end date validation</p>
+                        </div>
+                        <div class="p-3 bg-green-50 border-l-4 border-green-500 rounded">
+                            <h4 class="font-semibold text-green-800">Date & Time Input</h4>
+                            <p class="text-sm text-green-700">Test datetime-local inputs</p>
+                        </div>
+                        <div class="p-3 bg-red-50 border-l-4 border-red-500 rounded">
+                            <h4 class="font-semibold text-red-800">Date Validation</h4>
+                            <p class="text-sm text-red-700">Test min/max date constraints</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Element Locators Reference -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-search mr-2 text-blue-600"></i>
+                        Element Locators Reference
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div><strong>Simple Date:</strong> <code class="bg-gray-100 px-1 rounded">#simple-date</code></div>
+                        <div><strong>Date with Limits:</strong> <code class="bg-gray-100 px-1 rounded">#date-with-limits</code></div>
+                        <div><strong>Start Date:</strong> <code class="bg-gray-100 px-1 rounded">#start-date</code></div>
+                        <div><strong>End Date:</strong> <code class="bg-gray-100 px-1 rounded">#end-date</code></div>
+                        <div><strong>Meeting Date:</strong> <code class="bg-gray-100 px-1 rounded">#meeting-date</code></div>
+                        <div><strong>Meeting Time:</strong> <code class="bg-gray-100 px-1 rounded">#meeting-time</code></div>
+                        <div><strong>DateTime Local:</strong> <code class="bg-gray-100 px-1 rounded">#datetime-local</code></div>
+                        <div><strong>Submit Button:</strong> <code class="bg-gray-100 px-1 rounded">#date-submit</code></div>
+                    </div>
+                </div>
+
+                <!-- Selenium Testing Tips -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-lightbulb mr-2 text-yellow-600"></i>
+                        Selenium Testing Tips
+                    </h3>
+                    <div class="space-y-3 text-sm text-gray-700">
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Use sendKeys() for date input with format YYYY-MM-DD</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Test date validation with min/max attributes</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Verify date range logic and calculations</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Check date format validation and error messages</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Test accessibility with keyboard navigation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-flask mr-2"></i>AutoTestLab
+                    </h3>
+                    <p class="text-gray-300">Your comprehensive platform for learning and practicing automation testing with Selenium and other tools.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="test-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Test Scenarios</a></li>
+                        <li><a href="login-scenarios.html" class="text-gray-300 hover:text-white transition duration-300">Login Scenarios</a></li>
+                        <li><a href="form-handling.html" class="text-gray-300 hover:text-white transition duration-300">Form Handling</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Documentation</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">API Reference</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2025 AutoTestLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="datepicker.js"></script>
+</body>
+</html>

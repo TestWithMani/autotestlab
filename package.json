@@ -1,0 +1,52 @@
+{
+  "name": "autotestlab",
+  "version": "1.0.0",
+  "description": "A comprehensive web-based platform for learning and practicing automation testing with Selenium WebDriver",
+  "main": "src/pages/index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "test": "echo \"No tests configured\" && exit 0",
+    "lint": "echo \"Linting not configured\" && exit 0",
+    "build": "echo \"Build not required for static site\" && exit 0",
+    "deploy": "echo \"Deploy to Netlify or GitHub Pages\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TestWithMani/autotestlab.git"
+  },
+  "keywords": [
+    "selenium",
+    "automation",
+    "testing",
+    "webdriver",
+    "python",
+    "qa",
+    "test-automation",
+    "selenium-webdriver",
+    "web-testing",
+    "automation-testing"
+  ],
+  "author": "Muhammad Usman Arshad (TestWithMani)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TestWithMani/autotestlab/issues"
+  },
+  "homepage": "https://github.com/TestWithMani/autotestlab#readme",
+  "devDependencies": {},
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/TestWithMani"
+  }
+}

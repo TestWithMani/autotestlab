@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Testing - AutoTestLab | API Automation Testing</title>
+    <meta name="description" content="Master API automation testing with AutoTestLab. Learn REST API testing, request validation, response analysis, and API performance testing.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-flask text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">AutoTestLab</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="test-scenarios.html" class="nav-link">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link">Date Picker</a>
+                    <a href="docs.html" class="nav-link">Docs</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-800" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="nav-link-mobile">Home</a>
+                    <a href="test-scenarios.html" class="nav-link-mobile">Test Scenarios</a>
+                    <a href="login-scenarios.html" class="nav-link-mobile">Login Scenarios</a>
+                    <a href="form-handling.html" class="nav-link-mobile">Form Handling</a>
+                    <a href="javascript-alerts.html" class="nav-link-mobile">JS Alerts</a>
+                    <a href="dynamic-tables.html" class="nav-link-mobile">Dynamic Tables</a>
+                    <a href="file-upload.html" class="nav-link-mobile">File Upload</a>
+                    <a href="drag-drop.html" class="nav-link-mobile">Drag & Drop</a>
+                    <a href="datepicker.html" class="nav-link-mobile">Date Picker</a>
+                    <a href="docs.html" class="nav-link-mobile">Docs</a>
+                    <a href="about.html" class="nav-link-mobile">About</a>
+                    <a href="contact.html" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    API Testing <span class="text-yellow-300">Automation</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                    Master API automation testing with comprehensive request validation, response analysis, and performance testing
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="test-scenarios.html" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                        Start Testing
+                    </a>
+                    <a href="docs.html" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition duration-300">
+                        View Documentation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Testing Overview -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">API Testing Overview</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">
+                                <i class="fas fa-database text-purple-600 mr-2"></i>
+                                REST API Testing
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Test RESTful APIs using HTTP methods (GET, POST, PUT, DELETE) with comprehensive request and response validation.
+                            </p>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• HTTP method testing (GET, POST, PUT, DELETE)</li>
+                                <li>• Request/response validation</li>
+                                <li>• Status code verification</li>
+                                <li>• JSON/XML response parsing</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">
+                                <i class="fas fa-shield-alt text-blue-600 mr-2"></i>
+                                Authentication & Security
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Test API security including authentication, authorization, and vulnerability assessment for robust API testing.
+                            </p>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• OAuth 2.0 authentication</li>
+                                <li>• JWT token validation</li>
+                                <li>• API key authentication</li>
+                                <li>• Security vulnerability testing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">
+                                <i class="fas fa-tachometer-alt text-green-600 mr-2"></i>
+                                Performance Testing
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Monitor API performance including response times, throughput, and load testing to ensure optimal performance.
+                            </p>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Response time measurement</li>
+                                <li>• Throughput testing</li>
+                                <li>• Load and stress testing</li>
+                                <li>• Performance benchmarking</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">
+                                <i class="fas fa-code text-orange-600 mr-2"></i>
+                                Data Validation
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Validate API data integrity including schema validation, data type checking, and business logic verification.
+                            </p>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• JSON schema validation</li>
+                                <li>• Data type verification</li>
+                                <li>• Business logic testing</li>
+                                <li>• Error handling validation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Testing Types -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">API Testing Types</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-check-circle text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Functional Testing</h3>
+                        <p class="text-gray-600 mb-4">Test API functionality, business logic, and expected behavior under various conditions.</p>
+                        <ul class="text-gray-600 space-y-1 text-sm">
+                            <li>• Endpoint functionality</li>
+                            <li>• Business logic validation</li>
+                            <li>• Data flow testing</li>
+                            <li>• Integration testing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-tachometer-alt text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Performance Testing</h3>
+                        <p class="text-gray-600 mb-4">Evaluate API performance, response times, and scalability under different load conditions.</p>
+                        <ul class="text-gray-600 space-y-1 text-sm">
+                            <li>• Load testing</li>
+                            <li>• Stress testing</li>
+                            <li>• Spike testing</li>
+                            <li>• Endurance testing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-shield-alt text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Security Testing</h3>
+                        <p class="text-gray-600 mb-4">Test API security vulnerabilities, authentication, and authorization mechanisms.</p>
+                        <ul class="text-gray-600 space-y-1 text-sm">
+                            <li>• Authentication testing</li>
+                            <li>• Authorization testing</li>
+                            <li>• Vulnerability scanning</li>
+                            <li>• Penetration testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Testing Tools -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">API Testing Tools</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Postman</h3>
+                        <p class="text-gray-600 text-sm">Popular API testing and development platform</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg text-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-robot text-green-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">RestAssured</h3>
+                        <p class="text-gray-600 text-sm">Java library for REST API testing</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg text-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-python text-purple-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Requests</h3>
+                        <p class="text-gray-600 text-sm">Python library for HTTP requests</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg text-center">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-newman text-orange-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Newman</h3>
+                        <p class="text-gray-600 text-sm">Command-line collection runner for Postman</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Testing Scenarios -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">API Testing Scenarios</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">CRUD Operations</h3>
+                            <p class="text-gray-600 mb-3">Test Create, Read, Update, and Delete operations for API endpoints.</p>
+                            <ul class="text-gray-600 text-sm space-y-1">
+                                <li>• POST - Create new resources</li>
+                                <li>• GET - Retrieve resources</li>
+                                <li>• PUT/PATCH - Update resources</li>
+                                <li>• DELETE - Remove resources</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">Authentication Testing</h3>
+                            <p class="text-gray-600 mb-3">Test various authentication methods and token validation.</p>
+                            <ul class="text-gray-600 text-sm space-y-1">
+                                <li>• Basic authentication</li>
+                                <li>• OAuth 2.0 flows</li>
+                                <li>• JWT token validation</li>
+                                <li>• API key authentication</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">Error Handling</h3>
+                            <p class="text-gray-600 mb-3">Test API error responses and exception handling scenarios.</p>
+                            <ul class="text-gray-600 text-sm space-y-1">
+                                <li>• Invalid input validation</li>
+                                <li>• Missing required fields</li>
+                                <li>• Server error responses</li>
+                                <li>• Rate limiting testing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">Data Validation</h3>
+                            <p class="text-gray-600 mb-3">Validate API request and response data integrity.</p>
+                            <ul class="text-gray-600 text-sm space-y-1">
+                                <li>• JSON schema validation</li>
+                                <li>• Data type verification</li>
+                                <li>• Field length validation</li>
+                                <li>• Business rule validation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">Performance Testing</h3>
+                            <p class="text-gray-600 mb-3">Test API performance under various load conditions.</p>
+                            <ul class="text-gray-600 text-sm space-y-1">
+                                <li>• Response time testing</li>
+                                <li>• Throughput measurement</li>
+                                <li>• Concurrent user testing</li>
+                                <li>• Load spike testing</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">Integration Testing</h3>
+                            <p class="text-gray-600 mb-3">Test API integration with other systems and services.</p>
+                            <ul class="text-gray-600 text-sm space-y-1">
+                                <li>• Third-party API integration</li>
+                                <li>• Database integration</li>
+                                <li>• Message queue testing</li>
+                                <li>• Webhook testing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">API Testing Best Practices</h2>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">Test Data Management</h3>
+                                <p class="text-gray-600">Use proper test data management strategies including test data isolation and cleanup.</p>
+                            </div>
+                            
+                            <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">Environment Configuration</h3>
+                                <p class="text-gray-600">Maintain separate test environments and use environment-specific configuration management.</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">Response Validation</h3>
+                                <p class="text-gray-600">Validate both response status codes and response body content for comprehensive testing.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">Error Scenario Testing</h3>
+                                <p class="text-gray-600">Test error scenarios including invalid inputs, network failures, and server errors.</p>
+                            </div>
+                            
+                            <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">Security Testing</h3>
+                                <p class="text-gray-600">Include security testing in your API test suite to identify vulnerabilities and security issues.</p>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">Continuous Testing</h3>
+                                <p class="text-gray-600">Integrate API testing into CI/CD pipelines for continuous quality assurance and early bug detection.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Examples -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">API Testing Code Examples</h2>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">Python with Requests</h3>
+                            <pre class="bg-gray-100 p-4 rounded-lg text-sm overflow-x-auto"><code>import requests
+import json
+
+# GET request example
+response = requests.get('https://api.example.com/users')
+assert response.status_code == 200
+data = response.json()
+assert len(data) > 0
+
+# POST request example
+payload = {'name': 'John Doe', 'email': 'john@example.com'}
+response = requests.post('https://api.example.com/users', 
+                        json=payload)
+assert response.status_code == 201</code></pre>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">Java with RestAssured</h3>
+                            <pre class="bg-gray-100 p-4 rounded-lg text-sm overflow-x-auto"><code>import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+
+// GET request example
+given()
+    .when()
+    .get("/users")
+    .then()
+    .statusCode(200)
+    .body("size()", greaterThan(0));
+
+// POST request example
+given()
+    .contentType("application/json")
+    .body("{\"name\":\"John Doe\"}")
+    .when()
+    .post("/users")
+    .then()
+    .statusCode(201);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-gradient-to-r from-purple-600 to-indigo-700 text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-6">Ready to Start API Testing?</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">
+                    Begin your API automation testing journey with our comprehensive test scenarios and real-world examples.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="test-scenarios.html" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                        Start Testing Now
+                    </a>
+                    <a href="docs.html" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition duration-300">
+                        Read Documentation
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-flask text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">AutoTestLab</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Your comprehensive demo automation testing platform powered by Selenium and modern testing tools.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Platform</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-300">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">API</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Integrations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="docs.html" class="hover:text-white transition duration-300">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Tutorials</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition duration-300">About</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition duration-300">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 AutoTestLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
